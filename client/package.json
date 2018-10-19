@@ -1,5 +1,5 @@
 {
-  "name": "atsignnews-client",
+  "name": "news",
   "version": "1.0.0",
   "description": "news for atsigns.",
   "main": "index.js",
@@ -11,14 +11,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/novatorethebot/atsignnews.git"
+    "url": "git+https://github.com/sehailey/news.git"
   },
-  "author": "novatorethebot",
+  "author": "Sarah Hailey",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/novatorethebot/atsignnews/issues"
+    "url": "https://github.com/sehaile/news/"
   },
-  "homepage": "https://github.com/novatorethebot/atsignnews#readme",
+  "homepage": "https://github.com/sehailey/news#readme",
   "dependencies": {
     "chai": "^4.2.0",
     "mocha": "^5.2.0",
