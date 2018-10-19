@@ -2,7 +2,7 @@ const router = require('express').Router()
 module.exports = router
 const ascii = require('./ascii')
 
-router.use('/stories', require('./stories'))
+router.use('/items', require('./items'))
 
 router.get('/', async (req, res, next) => {
   try {

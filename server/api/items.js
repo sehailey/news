@@ -1,12 +1,12 @@
 const router = require('express').Router()
-const { Story } = require('../db/models')
+const { Item } = require('../db/models')
 module.exports = router
 
 router.get('/', async (req, res, next) => {
   try {
-    const stories = await Story.findAll()
+    const items = await Item.findAll()
 
-    res.status(201).send(stories)
+    res.status(201).send(items)
   } catch (err) {
     next(err)
   }
@@ -14,9 +14,9 @@ router.get('/', async (req, res, next) => {
 
 router.post('/', async (req, res, next) => {
   try {
-    const story = await Story.create(req.body)
+    const item = await Item.create(req.body)
 
-    res.status(201).json(story)
+    res.status(201).json(item)
   } catch (err) {
     next(err)
   }

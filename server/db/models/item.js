@@ -9,7 +9,7 @@ const db = require('../db')
     author,
     timeAgo*/
 
-const Story = db.define('story', {
+const Item = db.define('item', {
   title: {
     type: Sequelize.STRING,
     allowNull: false
@@ -40,4 +40,4 @@ const Story = db.define('story', {
   }
 })
 
-module.exports = Story
+module.exports = Item

@@ -1,5 +1,5 @@
 const db = require('../db')
-const { Story } = require('./models')
+const { Item } = require('./models')
 
 /*  title,
     url,
@@ -9,7 +9,7 @@ const { Story } = require('./models')
     author,
     timeAgo*/
 
-const testStory = {
+const testItem = {
   title: 'This story is awesome',
   url: 'https://anarchistnews.org',
   commentUrl: 'localhost:8080/',
@@ -23,7 +23,7 @@ async function runSeed() {
   console.log('db synced!')
   console.log('seeding...')
   try {
-    await Story.create(testStory)
+    await Item.create(testItem)
     console.log('seeded successfully')
   } catch (err) {
     console.error(err)

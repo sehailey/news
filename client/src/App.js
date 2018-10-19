@@ -2,6 +2,9 @@ import React, { Component } from 'react'
 import axios from 'axios'
 import { Navbar, Home, Footer } from './components'
 import Routes from './routes'
+import { getAllItems } from './store'
+import { connect } from 'react-redux'
+
 const defaultState = { ascii: `` }
 
 class App extends Component {
@@ -21,7 +24,10 @@ class App extends Component {
   }
 
   componentDidMount() {
-    this.fetchAPI().then(() => console.log(this.state.ascii))
+    this.fetchAPI()
+    this.props.fetchItems()
+
+    console.log(this.state.ascii)
   }
 
   render() {
@@ -35,4 +41,13 @@ class App extends Component {
   }
 }
 
-export default App
+const mapDispatch = dispatch => {
+  return {
+    fetchItems: () => dispatch(getAllItems())
+  }
+}
+
+export default connect(
+  null,
+  mapDispatch
+)(App)

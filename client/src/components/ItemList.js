@@ -1,13 +1,17 @@
 import React from 'react'
+import { connect } from 'react-redux'
 import Item from './Item'
 
-const StoryList = props => {
-  const { stories } = props
+const ItemList = props => {
+  const { items } = props
   return (
     <table className="story-list u-full-width">
-      <tbody>{stories.map(story => <Item key={story.id} {...story} />)}</tbody>
+      <tbody>{items.map(item => <Item key={item.id} {...item} />)}</tbody>
     </table>
   )
 }
 
-export default StoryList
+const mapState = state => {
+  return { items: state.items }
+}
+export default connect(mapState)(ItemList)

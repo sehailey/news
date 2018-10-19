@@ -1,3 +1,3 @@
-const Story = require('./story')
+const Item = require('./item')
 
-module.exports = {Story}
+module.exports = { Item }

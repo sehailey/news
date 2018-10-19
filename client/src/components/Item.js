@@ -17,7 +17,14 @@ const Headline = props => {
   return (
     <tr>
       <td>
-        <button onClick={() => console.log('vote!')}>+</button>
+        <div
+          className="pointer arrow-up"
+          onClick={() => console.log('vote!')}
+        />
+        <div
+          className="pointer arrow-down"
+          onClick={() => console.log('vote!')}
+        />
       </td>
       <td>
         <div className="row">
