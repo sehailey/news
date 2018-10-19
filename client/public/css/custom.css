@@ -1,0 +1,57 @@
+container {
+  min-height: 100%;
+  min-width: 100%;
+}
+
+/*Footer*/
+
+.footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+
+  height: 60px; /* Set the fixed height of the footer here */
+  line-height: 60px; /* Vertically center the text there */
+  background-color: #f5f5f5;
+}
+
+/* Add a black background color to the top navigation */
+.navbar {
+  background-color: #333;
+  overflow: hidden;
+}
+
+/* Style the links inside the navigation bar */
+.navbar a {
+  display: flex;
+  vertical-align: middle;
+  float: left;
+  display: block;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 5px 5px 5px 5px;
+  height: 30px;
+  text-decoration: none;
+  font-size: 17px;
+}
+
+/* Change the color of links on hover */
+.navbar a:hover {
+  text-decoration: bold;
+  color: black;
+}
+
+/* Add an active class to highlight the current page */
+.active {
+  font-size: 19px;
+  color: white;
+}
+
+/* Hide the link that should open and close the navbar on small screens */
+/* .navbar .icon {
+  display: none;
+} */
+
+.submit-item {
+  margin-top: 1em;
+}
