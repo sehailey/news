@@ -1,13 +1,13 @@
 import React, { Component } from 'react'
 import { withRouter, Route } from 'react-router-dom'
-import { ItemList, SubmitItemContainer } from './components'
+import { ItemListContainer, SubmitItemContainer } from './components'
 
 class Routes extends Component {
   render() {
     return (
       <div>
         <Route path="/submit" component={SubmitItemContainer} />
-        <Route exact path="/" component={ItemList} />
+        <Route exact path="/" component={ItemListContainer} />
       </div>
     )
   }

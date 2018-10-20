@@ -1,7 +1,9 @@
 import React from 'react'
+import { connect } from 'react-redux'
 
 const Headline = props => {
   const {
+    id,
     title,
     url,
     commentUrl,
@@ -13,7 +15,6 @@ const Headline = props => {
   } = props
 
   const commentTxt = commentCount > 0 ? `${commentCount} comments` : 'discuss'
-
   return (
     <tr>
       <td>
@@ -40,4 +41,5 @@ const Headline = props => {
   )
 }
 
-export default Headline
+const mapState = state => ({ person: state.person })
+export default connect(mapState)(Headline)

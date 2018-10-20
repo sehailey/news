@@ -1,5 +1,5 @@
 const db = require('../db')
-const { Item } = require('./models')
+const { Item, Person, Vote } = require('./models')
 
 /*  title,
     url,
@@ -18,12 +18,23 @@ const testItem = {
   author: 'notnull',
   timeAgo: 1
 }
+
+const testPerson = {
+  email: 'notnull@fake.xom',
+  password: '123',
+  itemVotes: [{ itemId: 1, vote: 0 }]
+}
+
 async function runSeed() {
   await db.sync({ force: true })
   console.log('db synced!')
   console.log('seeding...')
   try {
-    await Item.create(testItem)
+    const item = await Item.create(testItem)
+    const person = await Person.create(testPerson)
+
+    await person.addItemVote(1, { through: { vote: 0 } })
+
     console.log('seeded successfully')
   } catch (err) {
     console.error(err)
