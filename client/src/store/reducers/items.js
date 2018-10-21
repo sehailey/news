@@ -20,8 +20,9 @@ export const createdItem = item => ({
 
 export const getAllItems = () => async dispatch => {
   try {
-    const { data } = await axios.get('/api/items')
-    dispatch(gotAllItems(data))
+    const res = await axios.get('/api/items')
+    const items = res.data
+    dispatch(gotAllItems(items))
   } catch (err) {
     console.error(err)
   }
@@ -37,7 +38,7 @@ export const createItem = item => async dispatch => {
 }
 
 // REDUCER
-const itemReducer = (items = initialItems, action) => {
+const itemsReducer = (items = initialItems, action) => {
   switch (action.type) {
     case GOT_ALL_ITEMS: {
       return action.items
@@ -52,4 +53,4 @@ const itemReducer = (items = initialItems, action) => {
   }
 }
 
-export default itemReducer
+export default itemsReducer

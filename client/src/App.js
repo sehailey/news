@@ -1,11 +1,11 @@
 import React, { Component } from 'react'
 import axios from 'axios'
-import { Navbar, Home, Footer } from './components'
+import { connect } from 'react-redux'
 import Routes from './routes'
 import { getAllItems, getPerson } from './store'
-import { connect } from 'react-redux'
+import { Navbar, Home, Footer } from './components'
 
-const defaultState = { loading: true, ascii: `` }
+const defaultState = { loading: true, error: false, ascii: `` }
 
 class App extends Component {
   constructor() {
@@ -22,11 +22,8 @@ class App extends Component {
       console.log('something went wrong.')
     }
   }
-
-  componentDidMount() {
-    this.fetchAPI()
-
-    console.log(this.state.ascii)
+  componentDidMount = () => {
+    this.fetchAPI().then(() => console.log(this.state.ascii))
   }
 
   render() {

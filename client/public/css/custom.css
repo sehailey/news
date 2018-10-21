@@ -71,8 +71,6 @@ container {
   height: 0;
   border-left: 10px solid transparent;
   border-right: 10px solid transparent;
-
-  border-top: 10px solid #cececa;
 }
 
 .arrow-right {
@@ -95,4 +93,20 @@ container {
 
 .pointer {
   cursor: pointer;
+}
+
+.upvote {
+  border-bottom: 10px solid #000;
+}
+
+.noUpVote {
+  border-top: 10px solid #cececa;
+}
+
+.downvote {
+  border-top: 10px solid #000;
+}
+
+.nodownvote {
+  border-top: 10px solid #cececa;
 }

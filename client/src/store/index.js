@@ -1,7 +1,7 @@
 import { createStore, combineReducers, applyMiddleware, compose } from 'redux'
 import { createLogger } from 'redux-logger'
 import thunkMiddleware from 'redux-thunk'
-import items from './reducers/item'
+import items from './reducers/items'
 import person from './reducers/person'
 
 const reducer = combineReducers({ items, person })
@@ -19,5 +19,5 @@ if (process.env.NODE_ENV === 'development') {
 const store = createStore(reducer, middleware)
 
 export default store
-export * from './reducers/item'
+export * from './reducers/items'
 export * from './reducers/person'

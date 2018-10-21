@@ -5,6 +5,9 @@ const GOT_PERSON = 'GOT_PERSON'
 
 const GOT_ALL_PEOPLE = 'GOT_ALL_PEOPLE'
 const CREATED_PERSON = 'CREATE_PERSON'
+const PERSON_UPVOTED = 'PERSON_UPVOTED'
+const PERSON_DOWNVOTED = 'PERSON_DOWNVOTED'
+
 const initialPeople = []
 
 // ACTION CREATORS
@@ -21,6 +24,18 @@ export const gotPerson = person => ({
 export const createdPerson = person => ({
   type: CREATED_PERSON,
   people
+})
+
+export const personUpvoted = (person, itemId) => ({
+  type: PERSON_UPVOTED,
+  person,
+  itemId
+})
+
+export const personDownvoted = (person, itemId) => ({
+  type: PERSON_DOWNVOTED,
+  person,
+  itemId
 })
 
 // THUNK CREATORS
@@ -61,6 +76,16 @@ export const getPerson = person => async dispatch => {
   }
 }
 
+export const personUpvote = (personId, itemId) => async dispatch => {
+  try {
+    const res = await axios.post(`/api/people/${personId}`)
+    const person = await res.data
+    await person.addItemVote(itemId, { through: { vote: 1 } })
+  } catch (err) {
+    console.error(err)
+  }
+}
+
 // REDUCER
 const personReducer = (people = initialPeople, action) => {
   switch (action.type) {
@@ -72,6 +97,10 @@ const personReducer = (people = initialPeople, action) => {
     }
     case CREATED_PERSON: {
       return [...people, action.person]
+    }
+
+    case PERSON_UPVOTED: {
+      return
     }
 
     default: {

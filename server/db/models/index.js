@@ -17,7 +17,8 @@ Item.belongsToMany(Person, {
   foreignKey: 'itemId'
 })
 
-Person.hasMany(Vote, { as: 'votes' })
+Person.hasMany(Vote, { as: 'personVotez' })
+Item.hasMany(Vote, { as: 'itemVotez' })
 
 // Person.belongsToMany(Vote)
 // Vote.hasOne(Person)
