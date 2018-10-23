@@ -1,5 +1,5 @@
 const db = require('../db')
-const { Item, Person, Vote } = require('./models')
+const { Item, User, Vote } = require('./models')
 
 /*  title,
     url,
@@ -19,7 +19,7 @@ const testItem = {
   timeAgo: 1
 }
 
-const testPerson = {
+const testUser = {
   email: 'notnull@fake.xom',
   password: '123',
   itemVotes: [{ itemId: 1, vote: 0 }]
@@ -31,9 +31,9 @@ async function runSeed() {
   console.log('seeding...')
   try {
     const item = await Item.create(testItem)
-    const person = await Person.create(testPerson)
+    const user = await User.create(testUser)
 
-    await person.addItemVote(1, { through: { vote: 0 } })
+    await user.addItemVote(1, { through: { vote: 0 } })
 
     console.log('seeded successfully')
   } catch (err) {

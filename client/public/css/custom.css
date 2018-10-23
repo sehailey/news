@@ -62,7 +62,6 @@ container {
   border-left: 10px solid transparent;
   border-right: 10px solid transparent;
 
-  border-bottom: 10px solid #cececa;
   margin-bottom: 4px;
 }
 
@@ -73,40 +72,22 @@ container {
   border-right: 10px solid transparent;
 }
 
-.arrow-right {
-  width: 0;
-  height: 0;
-  border-top: 60px solid transparent;
-  border-bottom: 60px solid transparent;
-
-  border-left: 60px solid green;
-}
-
-.arrow-left {
-  width: 0;
-  height: 0;
-  border-top: 10px solid transparent;
-  border-bottom: 10px solid transparent;
-
-  border-right: 10px solid blue;
-}
-
 .pointer {
   cursor: pointer;
 }
 
-.upvote {
+.upVote {
   border-bottom: 10px solid #000;
 }
 
 .noUpVote {
-  border-top: 10px solid #cececa;
+  border-bottom: 10px solid #cececa;
 }
 
-.downvote {
+.downVote {
   border-top: 10px solid #000;
 }
 
-.nodownvote {
+.noDownVote {
   border-top: 10px solid #cececa;
 }

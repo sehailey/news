@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import axios from 'axios'
 import { connect } from 'react-redux'
 import { ItemListView } from '../components/ItemList'
+import { getUser, getAllItems, getUserVotes } from '../store'
 
 const defaultState = { loading: true }
 
@@ -13,7 +14,9 @@ class ItemListContainer extends Component {
   }
 
   componentDidMount() {
-    this.props.fetchData().then(() => this.setState({ loading: false }))
+    this.props.fetchData()
+    this.setState({ loading: false })
+
     console.log('ItemListContainer mounted')
   }
   renderLoading() {
@@ -29,18 +32,20 @@ class ItemListContainer extends Component {
   }
 
   render() {
-    if (this.state.loading) this.renderLoading()
-    else this.renderItemList()
+    if (this.state.loading) return this.renderLoading()
+    else if (this.props.items) return this.renderItemList()
+    else return this.renderError()
   }
 }
 
-const mapState = state => ({ person: state.person, items: state.items })
+const mapState = state => ({ user: state.user, items: state.items })
 
 const mapDispatch = dispatch => {
   return {
     fetchData: () => {
       dispatch(getAllItems())
-      dispatch(getPerson())
+      dispatch(getUser())
+      dispatch(getUserVotes())
     }
   }
 }

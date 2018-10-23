@@ -3,7 +3,7 @@ module.exports = router
 const ascii = require('./ascii')
 
 router.use('/items', require('./items'))
-router.use('/people', require('./people'))
+router.use('/users', require('./users'))
 router.use('/votes', require('./votes'))
 
 router.get('/', async (req, res, next) => {

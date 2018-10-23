@@ -1,26 +1,26 @@
 const Item = require('./item')
-const Person = require('./person')
+const User = require('./user')
 const Vote = require('./vote')
 //const user_item = require('./user_item')
 
 //User.belongsToMany(Project, { as: 'Tasks', through: 'worker_tasks', foreignKey: 'userId' })
 
-Person.belongsToMany(Item, {
+User.belongsToMany(Item, {
   as: 'itemVotes',
   through: Vote,
-  foreignKey: 'personId'
+  foreignKey: 'userId'
 })
 
-Item.belongsToMany(Person, {
-  as: 'personVotes',
+Item.belongsToMany(User, {
+  as: 'userVotes',
   through: Vote,
   foreignKey: 'itemId'
 })
 
-Person.hasMany(Vote, { as: 'personVotez' })
+User.hasMany(Vote, { as: 'userVotez' })
 Item.hasMany(Vote, { as: 'itemVotez' })
 
 // Person.belongsToMany(Vote)
 // Vote.hasOne(Person)
 
-module.exports = { Item, Person, Vote }
+module.exports = { Item, User, Vote }
