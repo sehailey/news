@@ -10,6 +10,7 @@ export const gotUserVotes = userVotes => ({
 
 export const getUserVotes = userId => async dispatch => {
   try {
+    console.log(userId)
     const res = await axios.get(`/api/users/${userId}/votes`)
     const userVotes = res.data
 

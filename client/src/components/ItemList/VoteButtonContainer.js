@@ -37,8 +37,12 @@ const mapState = state => {
 const mapDispatch = dispatch => {
   return {
     upVote: (user, itemId) => {
-      const userVote = user.votes.find(vote => (vote.itemId = itemId))
-      console.log('map dispatch userId and itemId', user, itemId)
+      const userVote = user.votes.find(vote => (vote.vote.itemId = itemId))
+      if (!userVote || userVote.vote.vote < 1) dispatch(upvote(user, itemId, 1))
+      if (userVote && userVote.vote.vote === 1)
+        dispatch(upvote(user, itemId, 0))
+
+      console.log('map dispatch userId and itemId', userVote, itemId)
       // dispatch(upvote(userId, itemId))
     }
   }

@@ -61,13 +61,6 @@ export const getUser = user => async dispatch => {
     const res = await axios.post('/api/users', user)
     const user = res.data
 
-    user.votes = user.itemVotes.map(item => ({
-      itemId: item.vote.itemId,
-      vote: item.vote.vote,
-      createdAt: item.vote.createdAt
-    }))
-    delete user.itemVotes
-
     dispatch(gotUser(user))
   } catch (err) {
     console.error(err)
@@ -76,11 +69,7 @@ export const getUser = user => async dispatch => {
 
 export const upvote = (userId, itemId, vote) => async dispatch => {
   try {
-    const res = await axios.put(`/api/users/${userId}`, {
-      userId,
-      itemId,
-      vote
-    })
+    const res = await axios.put(`/api/users/${userId}`, userId, itemId, vote)
     const user = await res.data
     console.log(user)
     dispatch(userUpVoted(user))

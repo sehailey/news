@@ -14,7 +14,8 @@ class ItemListContainer extends Component {
   }
 
   componentDidMount() {
-    this.props.fetchData()
+    this.props.fetchData(1)
+    console.log(this.props.user)
     this.setState({ loading: false })
 
     console.log('ItemListContainer mounted')
@@ -42,10 +43,10 @@ const mapState = state => ({ user: state.user, items: state.items })
 
 const mapDispatch = dispatch => {
   return {
-    fetchData: () => {
+    fetchData: userId => {
       dispatch(getAllItems())
-      dispatch(getUser())
-      dispatch(getUserVotes())
+      dispatch(getUser(userId))
+      dispatch(getUserVotes(userId))
     }
   }
 }

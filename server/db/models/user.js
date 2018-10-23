@@ -12,4 +12,7 @@ const User = db.define('user', {
   }
 })
 
+User.prototype.votez = () => {
+  return this.getVotes()
+}
 module.exports = User
